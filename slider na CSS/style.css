@@ -1,0 +1,72 @@
+.wrap{
+	height: 300px;
+	margin: 50px auto 0;
+	position: relative;
+	width: 550px;
+}
+.wrap>input{
+	display: none;
+}
+
+.slider{
+	background-color: #333;
+	height: inherit;
+	overflow: hidden;
+	position: relative;
+	width: inherit;
+}
+.slides{
+	width: inherit;
+	height: inherit; 
+	position: absolute;
+	z-index: 0;
+	opacity: 0; 
+	transition: 1s;
+}
+.img1{
+	background: yellow;
+	opacity: 1;
+}
+.img2{
+	background: green;
+}
+.img3{
+	background: red;
+}
+.wrap .control{
+	position: absolute;
+	margin-left: -50px;
+	left: 50%; 
+	bottom: 0;
+	z-index: 10;
+}
+.wrap label{
+	cursor: pointer;
+	display: inline-block;
+	height: 8px;
+	margin: 10px;
+	position: relative;
+	width: 8px;
+	border-radius: 50%;
+}
+.wrap label::after{
+	content: "";
+	position: absolute;
+	left: -4px;
+	top: -4px;
+	height: 12px;
+	width: 12px;
+	border: 2px solid #ffffff;
+	border-radius: 50%;
+}
+#point1:checked ~ .control label:nth-of-type(1),
+#point2:checked ~ .control label:nth-of-type(2),
+#point3:checked ~ .control label:nth-of-type(3){
+	background-color: #fff;
+}
+#point1:checked ~ .slider>.img1,
+#point2:checked ~ .slider>.img2,
+#point3:checked ~ .slider>.img3{
+	opacity: 1;
+	z-index: 1;
+}
